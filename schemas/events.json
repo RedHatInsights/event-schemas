@@ -1,0 +1,72 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://console.redhat.com/api/schemas/events.json",
+  "description": "ConsoleDot Event JSON Schema",
+  "allOf": [
+    {
+      "$ref": "https://raw.githubusercontent.com/cloudevents/spec/main/cloudevents/formats/cloudevents.json"
+    }
+  ],
+  "properties": {
+    "id": {
+      "pattern": "urn:redhat:console:event:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}",
+      "examples": [
+        "urn:redhat:insights:event:12b50cf4-2f4a-4c29-ac37-0081fc8c9428"
+      ]
+    },
+    "source": {
+      "description": "Describes the console.redhat.com app that generated the event.",
+      "pattern": "urn:redhat:console:app:.*",
+      "examples": [
+        "urn:redhat:console:app:advisor"
+      ]
+    },
+    "subject": {
+      "description": "Describes the subject of the event. URN in format urn:redhat:console:$bundle:$id.",
+      "pattern": "urn:redhat:console:.*:.*",
+      "examples": [
+        "urn:redhat:console:rhel:2356aad8-de45-4ba0-80bd-4637763ad115",
+        "urn:redhat:console:ansible:2356aad8-de45-4ba0-80bd-4637763ad115"
+      ]
+    },
+    "specversion": {
+      "enum": [
+        "1.0"
+      ]
+    },
+    "type": {
+      "pattern": "com\\.redhat\\.console\\..*",
+      "examples": [
+        "com.redhat.console.notification.toCamel.splunk"
+      ]
+    },
+    "dataschema": {
+      "pattern": "https://console.redhat.com/api/schemas/.*"
+    },
+    "redhatorgid": {
+      "description": "Red Hat Organization ID",
+      "$ref": "#/definitions/redhatorgiddef",
+      "examples": [
+        "123456"
+      ]
+    },
+    "redhatconsolebundle": {
+      "description": "Describes the console.redhat.com bundle.",
+      "$ref": "#/definitions/redhatconsolebundledef"
+    }
+  },
+  "required": [
+    "time",
+    "redhatorgid"
+  ],
+  "definitions": {
+    "redhatorgiddef": {
+      "type": "string",
+      "minLength": 1
+    },
+    "redhatconsolebundledef": {
+      "type": "string",
+      "minLength": 1
+    }
+  }
+}

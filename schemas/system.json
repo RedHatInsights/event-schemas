@@ -1,0 +1,72 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://console.redhat.com/api/schemas/system.json",
+  "description": "Event data for an event involving a system.",
+  "type": "object",
+
+  "properties": {
+    "system": {
+      "$ref": "#/definitions/System"
+    }
+  },
+  "additionalProperties": false,
+  "definitions": {
+    "System": {
+      "description": "A system managed by console.redhat.com",
+      "type": "object",
+      "properties": {
+        "inventory_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "hostname": {
+          "type": "string",
+          "minLength": 1
+        },
+        "display_name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "rhel_version": {
+          "type": "string",
+          "minLength": 1,
+          "examples": [
+            "8.4"
+          ]
+        },
+        "host_url": {
+          "type": "string",
+          "format": "uri",
+          "pattern": "https://console.redhat.com/insights/inventory/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SystemTag"
+          }
+        }
+      },
+      "required": [
+        "inventory_id"
+      ],
+      "additionalProperties": false
+    },
+    "SystemTag": {
+      "type": "object",
+      "properties": {
+        "namespace": {
+          "type": "string",
+          "minLength": 1
+        },
+        "key": {
+          "type": "string",
+          "minLength": 1
+        },
+        "value": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    }
+  }
+}

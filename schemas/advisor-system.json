@@ -1,0 +1,57 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://console.redhat.com/api/schemas/advisor-system.json",
+  "description": "Advisor System Event JSON Schema",
+  "allOf": [
+    {
+      "$ref": "https://console.redhat.com/api/schemas/system.json"
+    }
+  ],
+  "properties": {
+    "advisor_recommendations": {
+      "description": "Describes Advisor recommendations for a system.",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/AdvisorRecommendation"
+      }
+    }
+  },
+  "required": [
+    "system", "advisor_recommendations"
+  ],
+  "additionalProperties": false,
+  "definitions": {
+    "AdvisorRecommendation": {
+      "type": "object",
+      "properties": {
+        "rule_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "rule_description":{
+          "type": "string",
+          "minLength": 1
+        },
+        "total_risk": {
+          "type": "string",
+          "minLength": 1
+        },
+        "rule_url": {
+          "type": "string",
+          "pattern": "https://.*"
+        },
+        "publish_date": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "reboot_required": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "rule_id", "rule_description", "publish_date", "reboot_required", "rule_url", "total_risk"
+      ],
+      "additionalProperties": false
+    }
+  }
+}
