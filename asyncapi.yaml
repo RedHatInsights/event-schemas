@@ -1,6 +1,6 @@
 asyncapi: '2.3.0'
 info:
-  title: console.redhat.com Cloud Events
+  title: console.redhat.com CloudEvents
   version: v1
 channels: {}
 components:

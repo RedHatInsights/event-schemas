@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://console.redhat.com/api/schemas/events/v1/events.json",
-  "title": "console.redhat.com Cloud Events Schema",
+  "title": "console.redhat.com CloudEvents Schema",
   "description": "See https://raw.githubusercontent.com/cloudevents/spec/main/cloudevents/formats/cloudevents.json for base CloudEvents schema. NOTE: this schema inlines and further constrains some CloudEvents properties",
   "type": "object",
   "properties": {
