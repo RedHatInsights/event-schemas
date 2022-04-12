@@ -1,14 +1,13 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://console.redhat.com/api/schemas/events.json",
-  "description": "ConsoleDot Event JSON Schema",
-  "allOf": [
-    {
-      "$ref": "https://raw.githubusercontent.com/cloudevents/spec/main/cloudevents/formats/cloudevents.json"
-    }
-  ],
+  "$id": "https://console.redhat.com/api/schemas/events/v1/events.json",
+  "title": "console.redhat.com Cloud Events Schema",
+  "description": "See https://raw.githubusercontent.com/cloudevents/spec/main/cloudevents/formats/cloudevents.json for base CloudEvents schema. NOTE: this schema inlines and further constrains some CloudEvents properties",
+  "type": "object",
   "properties": {
     "id": {
+      "description": "Identifies the event.",
+      "type": "string",
       "pattern": "urn:redhat:console:event:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}",
       "examples": [
         "urn:redhat:insights:event:12b50cf4-2f4a-4c29-ac37-0081fc8c9428"
@@ -16,6 +15,7 @@
     },
     "source": {
       "description": "Describes the console.redhat.com app that generated the event.",
+      "type": "string",
       "pattern": "urn:redhat:console:app:.*",
       "examples": [
         "urn:redhat:console:app:advisor"
@@ -23,6 +23,7 @@
     },
     "subject": {
       "description": "Describes the subject of the event. URN in format urn:redhat:console:$bundle:$id.",
+      "type": "string",
       "pattern": "urn:redhat:console:.*:.*",
       "examples": [
         "urn:redhat:console:rhel:2356aad8-de45-4ba0-80bd-4637763ad115",
@@ -30,18 +31,43 @@
       ]
     },
     "specversion": {
+      "description": "Specifies the version of the CloudEvents spec targeted.",
+      "type": "string",
       "enum": [
         "1.0"
       ]
     },
     "type": {
+      "description": "The type of the event.",
+      "type": "string",
       "pattern": "com\\.redhat\\.console\\..*",
       "examples": [
         "com.redhat.console.notification.toCamel.splunk"
       ]
     },
     "dataschema": {
+      "description": "Identifies the schema that data adheres to.",
+      "type": "string",
       "pattern": "https://console.redhat.com/api/schemas/.*"
+    },
+    "data": {
+      "type": "object",
+      "oneOf": [
+        {
+          "$ref": "../../apps/advisor/v1/advisor-recommendations.json"
+        },
+        {
+          "$ref": "../../core/v1/system.json"
+        }
+      ]
+    },
+    "time": {
+      "description": "Timestamp of when the occurrence happened. Must adhere to RFC 3339.",
+      "type": "string",
+      "$ref": "#/definitions/timedef",
+      "examples": [
+        "2018-04-05T17:31:00Z"
+      ]
     },
     "redhatorgid": {
       "description": "Red Hat Organization ID",
@@ -56,10 +82,22 @@
     }
   },
   "required": [
+    "id",
+    "source",
+    "subject",
+    "specversion",
+    "type",
+    "dataschema",
+    "data",
     "time",
     "redhatorgid"
   ],
   "definitions": {
+    "timedef": {
+      "type": "string",
+      "format": "date-time",
+      "minLength": 1
+    },
     "redhatorgiddef": {
       "type": "string",
       "minLength": 1

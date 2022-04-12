@@ -1,5 +1,5 @@
 {
-  "$schema": "https://console.redhat.com/api/schemas/events.json",
+  "$schema": "https://console.redhat.com/api/schemas/events/v1/events.json",
   "id": "urn:redhat:console:event:5864ac25-4c52-4c87-bd28-9909a4fa3187",
   "source": "urn:redhat:console:app:advisor",
   "specversion": "1.0",
@@ -8,7 +8,7 @@
   "time": "2018-04-05T17:31:00Z",
   "redhatorgid": "org123",
   "redhatconsolebundle": "rhel",
-  "dataschema": "https://console.redhat.com/api/schemas/advisor-system.json",
+  "dataschema": "https://console.redhat.com/api/schemas/apps/advisor/v1/advisor-recommendations.json",
   "data": {
     "system": {
       "inventory_id": "08e8ec2b-6a79-4f1d-bea4-a438da139493",

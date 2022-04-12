@@ -1,14 +1,16 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://console.redhat.com/api/schemas/system.json",
-  "description": "Event data for an event involving a system.",
+  "$id": "https://console.redhat.com/api/schemas/core/v1/system.json",
+  "description": "Event data for a system.",
   "type": "object",
-
   "properties": {
     "system": {
       "$ref": "#/definitions/System"
     }
   },
+  "required": [
+    "system"
+  ],
   "additionalProperties": false,
   "definitions": {
     "System": {
@@ -66,7 +68,13 @@
           "type": "string",
           "minLength": 1
         }
-      }
+      },
+      "required": [
+        "key",
+        "namespace",
+        "value"
+      ],
+      "additionalProperties": false
     }
   }
 }
