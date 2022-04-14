@@ -44,7 +44,8 @@
       "type": "string",
       "pattern": "com\\.redhat\\.console\\..*",
       "examples": [
-        "com.redhat.console.advisor.new-recommendations"
+        "com.redhat.console.advisor.new-recommendations",
+        "com.redhat.console.subscriptions.vdc-misconfiguration"
       ]
     },
     "dataschema": {
@@ -57,6 +58,9 @@
       "oneOf": [
         {
           "$ref": "../../apps/advisor/v1/advisor-recommendations.json"
+        },
+        {
+          "$ref": "../../core/v1/empty.json"
         },
         {
           "$ref": "../../core/v1/rhel_system.json"
@@ -90,7 +94,6 @@
     "specversion",
     "type",
     "dataschema",
-    "data",
     "time",
     "redhatorgid"
   ],

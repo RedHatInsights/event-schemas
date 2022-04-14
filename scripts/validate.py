@@ -28,7 +28,7 @@ def validate(schema_uri):
         validator = jsonschema.validators.Draft7Validator(
             schema_store[instance["dataschema"]], resolver=resolver
         )
-        errors += list(validator.iter_errors(instance['data']))
+        errors += list(validator.iter_errors(instance.get('data')))
     for message in [error.message for error in errors]:
         print(f"❌ {message}")
     if len(errors) == 0:

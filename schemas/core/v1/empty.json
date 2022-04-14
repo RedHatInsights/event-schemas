@@ -1,0 +1,6 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://console.redhat.com/api/schemas/core/v1/empty.json",
+  "description": "Schema that indicates an event does not have any data. Useful when the subject and type are sufficient. The producer is still allowed to explicitly emit `null` in the data field if desired.",
+  "type": "null"
+}
