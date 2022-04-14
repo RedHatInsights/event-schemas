@@ -57,7 +57,7 @@
           "$ref": "../../apps/advisor/v1/advisor-recommendations.json"
         },
         {
-          "$ref": "../../core/v1/system.json"
+          "$ref": "../../core/v1/rhel_system.json"
         }
       ]
     },

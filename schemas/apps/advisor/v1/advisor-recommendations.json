@@ -13,7 +13,7 @@
       }
     },
     "system": {
-      "$ref": "../../../core/v1/system.json#/definitions/System"
+      "$ref": "../../../core/v1/rhel_system.json#/definitions/RhelSystem"
     }
   },
   "required": [

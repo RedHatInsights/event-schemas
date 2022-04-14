@@ -1,11 +1,11 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://console.redhat.com/api/schemas/core/v1/system.json",
-  "description": "Event data for a system.",
+  "$id": "https://console.redhat.com/api/schemas/core/v1/rhel_system.json",
+  "description": "Event data for a RHEL system.",
   "type": "object",
   "properties": {
     "system": {
-      "$ref": "#/definitions/System"
+      "$ref": "#/definitions/RhelSystem"
     }
   },
   "required": [
@@ -13,8 +13,8 @@
   ],
   "additionalProperties": false,
   "definitions": {
-    "System": {
-      "description": "A system managed by console.redhat.com",
+    "RhelSystem": {
+      "description": "A RHEL system managed by console.redhat.com",
       "type": "object",
       "properties": {
         "inventory_id": {
@@ -44,7 +44,7 @@
         "tags": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/SystemTag"
+            "$ref": "#/definitions/RhelSystemTag"
           }
         }
       },
@@ -53,7 +53,7 @@
       ],
       "additionalProperties": false
     },
-    "SystemTag": {
+    "RhelSystemTag": {
       "type": "object",
       "properties": {
         "namespace": {
