@@ -42,7 +42,7 @@
       "type": "string",
       "pattern": "com\\.redhat\\.console\\..*",
       "examples": [
-        "com.redhat.console.notification.toCamel.splunk"
+        "com.redhat.console.advisor.new-recommendations"
       ]
     },
     "dataschema": {
