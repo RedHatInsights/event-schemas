@@ -10,7 +10,7 @@
       "type": "string",
       "pattern": "urn:redhat:console:event:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}",
       "examples": [
-        "urn:redhat:insights:event:12b50cf4-2f4a-4c29-ac37-0081fc8c9428"
+        "urn:redhat:console:event:12b50cf4-2f4a-4c29-ac37-0081fc8c9428"
       ]
     },
     "source": {
@@ -22,12 +22,14 @@
       ]
     },
     "subject": {
-      "description": "Describes the subject of the event. URN in format urn:redhat:console:$bundle:$id.",
+      "description": "Describes the subject of the event. URN in format urn:redhat:console:$instance_type:$id. The urn may be longer to accommodate hierarchies",
       "type": "string",
       "pattern": "urn:redhat:console:.*:.*",
       "examples": [
-        "urn:redhat:console:rhel:2356aad8-de45-4ba0-80bd-4637763ad115",
-        "urn:redhat:console:ansible:2356aad8-de45-4ba0-80bd-4637763ad115"
+        "urn:redhat:console:rhel_system:2356aad8-de45-4ba0-80bd-4637763ad115",
+        "urn:redhat:console:rhel_system:2356aad8-de45-4ba0-80bd-4637763ad115:mssql_instance:b24c269d-33d6-410e-8808-c71c9635e84f",
+        "urn:redhat:console:ansible_cluster:2356aad8-de45-4ba0-80bd-4637763ad115",
+        "urn:redhat:console:cve:CVE-2014-0160"
       ]
     },
     "specversion": {
