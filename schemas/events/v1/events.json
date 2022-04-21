@@ -68,6 +68,9 @@
           "$ref": "../../core/v1/error.json"
         },
         {
+          "$ref": "../../core/v1/notification.json"
+        },
+        {
           "$ref": "../../core/v1/rhel_system.json"
         }
       ]
@@ -78,6 +81,14 @@
       "$ref": "#/definitions/timedef",
       "examples": [
         "2018-04-05T17:31:00Z"
+      ]
+    },
+    "redhataccount": {
+      "description": "Red Hat account number. Deprecated; redhatorgid should be used instead.",
+      "deprecated": true,
+      "$ref": "#/definitions/redhataccountdef",
+      "examples": [
+        "123456"
       ]
     },
     "redhatorgid": {
@@ -95,13 +106,16 @@
     "specversion",
     "type",
     "dataschema",
-    "time",
-    "redhatorgid"
+    "time"
   ],
   "definitions": {
     "timedef": {
       "type": "string",
       "format": "date-time",
+      "minLength": 1
+    },
+    "redhataccountdef": {
+      "type": "string",
       "minLength": 1
     },
     "redhatorgiddef": {
