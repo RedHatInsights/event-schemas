@@ -63,6 +63,9 @@
           "$ref": "../../core/v1/empty.json"
         },
         {
+          "$ref": "../../core/v1/error.json"
+        },
+        {
           "$ref": "../../core/v1/rhel_system.json"
         }
       ]
