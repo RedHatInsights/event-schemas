@@ -1,0 +1,58 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://console.redhat.com/api/schemas/core/v1/error.json",
+  "description": "Event data for an application error.",
+  "type": "object",
+  "properties": {
+    "error": {
+      "$ref": "#/definitions/Error"
+    }
+  },
+  "required": [
+    "error"
+  ],
+  "additionalProperties": false,
+  "definitions": {
+    "Error": {
+      "description": "An error reported by an application.",
+      "type": "object",
+      "properties": {
+        "code": {
+          "description": "Machine-readable error code that identifies the error.",
+          "type": "string",
+          "minLength": 1,
+          "examples": [
+            "401",
+            "AMQ022272"
+          ]
+        },
+        "message": {
+          "description": "Human readable description of the error.",
+          "type": "string",
+          "minLength": 1
+        },
+        "stack_trace": {
+          "description": "The stack trace/traceback (optional)",
+          "type": "string",
+          "minLength": 1
+        },
+        "severity": {
+          "description": "The severity of the error.",
+          "type": "string",
+          "minLength": 1,
+          "enum": [
+            "warning",
+            "error",
+            "critical"
+          ]
+        }
+      },
+      "required": [
+        "code",
+        "message",
+        "severity"
+      ],
+      "additionalProperties": false
+    }
+  }
+}
