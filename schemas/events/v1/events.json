@@ -6,30 +6,32 @@
   "type": "object",
   "properties": {
     "id": {
-      "description": "Identifies the event.",
+      "description": "Identifies the event. Unique for this source.",
       "type": "string",
-      "pattern": "urn:redhat:console:event:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}",
+      "format": "uuid",
       "examples": [
-        "urn:redhat:console:event:12b50cf4-2f4a-4c29-ac37-0081fc8c9428"
+        "afebabe-cafe-babe-cafe-babecafebabe"
       ]
     },
     "source": {
-      "description": "Describes the console.redhat.com app that generated the event.",
+      "description": "Describes the source (or app) that generated the event.",
       "type": "string",
-      "pattern": "urn:redhat:console:app:.*",
+      "pattern": "^urn:redhat:source:[a-z0-9][a-z0-9-_]+[a-z0-9](:[a-z0-9][a-z0-9-_]+[a-z0-9])*$",
       "examples": [
-        "urn:redhat:console:app:advisor"
+        "urn:redhat:source:insights:advisor",
+        "urn:redhat:source:rhosak",
+        "urn:redhat:source:crc:notifications"
       ]
     },
     "subject": {
-      "description": "Describes the subject of the event. URN in format urn:redhat:console:$instance_type:$id. The urn may be longer to accommodate hierarchies",
+      "description": "Describes the subject of the event. URN in format urn:redhat:subject:$instance_type:$id. The urn may be longer to accommodate hierarchies",
       "type": "string",
-      "pattern": "urn:redhat:console:.*:.*",
+      "pattern": "^urn:redhat:subject:([a-z0-9][a-z0-9-_]+[a-z0-9]:[a-z0-9A-Z-_]*)+$",
       "examples": [
-        "urn:redhat:console:rhel_system:2356aad8-de45-4ba0-80bd-4637763ad115",
-        "urn:redhat:console:rhel_system:2356aad8-de45-4ba0-80bd-4637763ad115:mssql_instance:b24c269d-33d6-410e-8808-c71c9635e84f",
-        "urn:redhat:console:ansible_cluster:2356aad8-de45-4ba0-80bd-4637763ad115",
-        "urn:redhat:console:cve:CVE-2014-0160"
+        "urn:redhat:subject:rhel_system:2356aad8-de45-4ba0-80bd-4637763ad115",
+        "urn:redhat:subject:rhel_system:2356aad8-de45-4ba0-80bd-4637763ad115:mssql_instance:b24c269d-33d6-410e-8808-c71c9635e84f",
+        "urn:redhat:subject:ansible_cluster:2356aad8-de45-4ba0-80bd-4637763ad115",
+        "urn:redhat:subject:cve:CVE-2014-0160"
       ]
     },
     "specversion": {
@@ -42,7 +44,7 @@
     "type": {
       "description": "The type of the event.",
       "type": "string",
-      "pattern": "com\\.redhat\\.console\\..*",
+      "pattern": "^com\\.[a-z0-9][a-z0-9-_]+[a-z0-9](\\.[a-z0-9][a-z0-9-_]+[a-z0-9])*$",
       "examples": [
         "com.redhat.console.advisor.new-recommendations",
         "com.redhat.console.subscriptions.vdc-misconfiguration"
@@ -84,10 +86,6 @@
       "examples": [
         "123456"
       ]
-    },
-    "redhatconsolebundle": {
-      "description": "Describes the console.redhat.com bundle.",
-      "$ref": "#/definitions/redhatconsolebundledef"
     }
   },
   "required": [
@@ -107,10 +105,6 @@
       "minLength": 1
     },
     "redhatorgiddef": {
-      "type": "string",
-      "minLength": 1
-    },
-    "redhatconsolebundledef": {
       "type": "string",
       "minLength": 1
     }
