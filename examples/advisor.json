@@ -1,10 +1,10 @@
 {
   "$schema": "https://console.redhat.com/api/schemas/events/v1/events.json",
   "id": "urn:redhat:console:event:5864ac25-4c52-4c87-bd28-9909a4fa3187",
-  "source": "urn:redhat:console:app:advisor",
+  "source": "urn:redhat:source:console:app:advisor",
   "specversion": "1.0",
   "type": "com.redhat.console.advisor.new-recommendations",
-  "subject": "urn:redhat:console:rhel:08e8ec2b-6a79-4f1d-bea4-a438da139493",
+  "subject": "urn:redhat:subject:console:rhel:08e8ec2b-6a79-4f1d-bea4-a438da139493",
   "time": "2018-04-05T17:31:00Z",
   "redhatorgid": "org123",
   "redhatconsolebundle": "rhel",
