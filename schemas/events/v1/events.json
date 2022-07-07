@@ -55,6 +55,22 @@
       "type": "string",
       "pattern": "https://console.redhat.com/api/schemas/.*"
     },
+    "title": {
+      "description": "Human readable text to identify the event",
+      "type": "string",
+      "examples": [
+        "5 Recomendations for system MySystem",
+        "12 Policies triggered for system MySystem",
+      ]
+    },
+    "link": {
+      "description": "Link to see information regarding the event.",
+      "type": "string",
+      "format": "uri",
+      "examples": [
+         "http://link-to-system-checkin.com"
+       ]
+    },
     "data": {
       "type": "object",
       "oneOf": [
