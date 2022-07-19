@@ -4,109 +4,125 @@
   "title": "console.redhat.com CloudEvents Schema",
   "description": "See https://raw.githubusercontent.com/cloudevents/spec/main/cloudevents/formats/cloudevents.json for base CloudEvents schema. NOTE: this schema inlines and further constrains some CloudEvents properties",
   "type": "object",
-  "properties": {
-    "id": {
-      "description": "Identifies the event. Unique for this source.",
-      "type": "string",
-      "format": "uuid",
-      "examples": [
-        "afebabe-cafe-babe-cafe-babecafebabe"
-      ]
+  "allOf": [
+    {
+      "$ref": "../../core/v1/human_readable.json"
     },
-    "source": {
-      "description": "Describes the source (or app) that generated the event.",
-      "type": "string",
-      "pattern": "^urn:redhat:source:[a-z0-9][a-z0-9-_]+[a-z0-9](:[a-z0-9][a-z0-9-_]+[a-z0-9])*$",
-      "examples": [
-        "urn:redhat:source:insights:advisor",
-        "urn:redhat:source:rhosak",
-        "urn:redhat:source:crc:notifications"
-      ]
-    },
-    "subject": {
-      "description": "Describes the subject of the event. URN in format urn:redhat:subject:$instance_type:$id. The urn may be longer to accommodate hierarchies",
-      "type": "string",
-      "pattern": "^urn:redhat:subject:([a-z0-9][a-z0-9-_]+[a-z0-9]:[a-z0-9A-Z-_]*)+$",
-      "examples": [
-        "urn:redhat:subject:rhel_system:2356aad8-de45-4ba0-80bd-4637763ad115",
-        "urn:redhat:subject:rhel_system:2356aad8-de45-4ba0-80bd-4637763ad115:mssql_instance:b24c269d-33d6-410e-8808-c71c9635e84f",
-        "urn:redhat:subject:ansible_cluster:2356aad8-de45-4ba0-80bd-4637763ad115",
-        "urn:redhat:subject:cve:CVE-2014-0160"
-      ]
-    },
-    "specversion": {
-      "description": "Specifies the version of the CloudEvents spec targeted.",
-      "type": "string",
-      "enum": [
-        "1.0"
-      ]
-    },
-    "type": {
-      "description": "The type of the event.",
-      "type": "string",
-      "pattern": "^com\\.[a-z0-9][a-z0-9-_]+[a-z0-9](\\.[a-z0-9][a-z0-9-_]+[a-z0-9])*$",
-      "examples": [
-        "com.redhat.console.advisor.new-recommendations",
-        "com.redhat.console.subscriptions.vdc-misconfiguration"
-      ]
-    },
-    "dataschema": {
-      "description": "Identifies the schema that data adheres to.",
-      "type": "string",
-      "pattern": "https://console.redhat.com/api/schemas/.*"
-    },
-    "data": {
+    {
       "type": "object",
-      "oneOf": [
-        {
-          "$ref": "../../apps/advisor/v1/advisor-recommendations.json"
+      "properties": {
+        "id": {
+          "description": "Identifies the event. Unique for this source.",
+          "type": "string",
+          "format": "uuid",
+          "examples": [
+            "afebabe-cafe-babe-cafe-babecafebabe"
+          ]
         },
-        {
-          "$ref": "../../core/v1/empty.json"
+        "source": {
+          "description": "Describes the source (or app) that generated the event.",
+          "type": "string",
+          "pattern": "^urn:redhat:source:[a-z0-9][a-z0-9-_]+[a-z0-9](:[a-z0-9][a-z0-9-_]+[a-z0-9])*$",
+          "examples": [
+            "urn:redhat:source:insights:advisor",
+            "urn:redhat:source:rhosak",
+            "urn:redhat:source:crc:notifications"
+          ]
         },
-        {
-          "$ref": "../../core/v1/error.json"
+        "subject": {
+          "description": "Describes the subject of the event. URN in format urn:redhat:subject:$instance_type:$id. The urn may be longer to accommodate hierarchies",
+          "type": "string",
+          "pattern": "^urn:redhat:subject:([a-z0-9][a-z0-9-_]+[a-z0-9]:[a-z0-9A-Z-_]*)+$",
+          "examples": [
+            "urn:redhat:subject:rhel_system:2356aad8-de45-4ba0-80bd-4637763ad115",
+            "urn:redhat:subject:rhel_system:2356aad8-de45-4ba0-80bd-4637763ad115:mssql_instance:b24c269d-33d6-410e-8808-c71c9635e84f",
+            "urn:redhat:subject:ansible_cluster:2356aad8-de45-4ba0-80bd-4637763ad115",
+            "urn:redhat:subject:cve:CVE-2014-0160"
+          ]
         },
-        {
-          "$ref": "../../core/v1/rhel_system.json"
+        "specversion": {
+          "description": "Specifies the version of the CloudEvents spec targeted.",
+          "type": "string",
+          "enum": [
+            "1.0"
+          ]
+        },
+        "type": {
+          "description": "The type of the event.",
+          "type": "string",
+          "pattern": "^com\\.[a-z0-9][a-z0-9-_]+[a-z0-9](\\.[a-z0-9][a-z0-9-_]+[a-z0-9])*$",
+          "examples": [
+            "com.redhat.console.advisor.new-recommendations",
+            "com.redhat.console.subscriptions.vdc-misconfiguration"
+          ]
+        },
+        "dataschema": {
+          "description": "Identifies the schema that data adheres to.",
+          "type": "string",
+          "pattern": "https://console.redhat.com/api/schemas/.*"
+        },
+        "data": {
+          "type": "object",
+          "allOf": [
+            {
+              "$ref": "../../core/v1/human_readable.json"
+            },
+            {
+              "type": "object",
+              "oneOf": [
+                {
+                  "$ref": "../../apps/advisor/v1/advisor-recommendations.json"
+                },
+                {
+                  "$ref": "../../core/v1/empty.json"
+                },
+                {
+                  "$ref": "../../core/v1/error.json"
+                },
+                {
+                  "$ref": "../../core/v1/rhel_system.json"
+                }
+              ]
+            }
+          ]
+        },
+        "time": {
+          "description": "Timestamp of when the occurrence happened. Must adhere to RFC 3339.",
+          "type": "string",
+          "$ref": "#/definitions/timedef",
+          "examples": [
+            "2018-04-05T17:31:00Z"
+          ]
+        },
+        "redhatorgid": {
+          "description": "Red Hat Organization ID",
+          "$ref": "#/definitions/redhatorgiddef",
+          "examples": [
+            "123456"
+          ]
         }
-      ]
-    },
-    "time": {
-      "description": "Timestamp of when the occurrence happened. Must adhere to RFC 3339.",
-      "type": "string",
-      "$ref": "#/definitions/timedef",
-      "examples": [
-        "2018-04-05T17:31:00Z"
-      ]
-    },
-    "redhatorgid": {
-      "description": "Red Hat Organization ID",
-      "$ref": "#/definitions/redhatorgiddef",
-      "examples": [
-        "123456"
-      ]
+      },
+      "required": [
+        "id",
+        "source",
+        "subject",
+        "specversion",
+        "type",
+        "dataschema",
+        "time",
+        "redhatorgid"
+      ],
+      "definitions": {
+        "timedef": {
+          "type": "string",
+          "format": "date-time",
+          "minLength": 1
+        },
+        "redhatorgiddef": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
     }
-  },
-  "required": [
-    "id",
-    "source",
-    "subject",
-    "specversion",
-    "type",
-    "dataschema",
-    "time",
-    "redhatorgid"
-  ],
-  "definitions": {
-    "timedef": {
-      "type": "string",
-      "format": "date-time",
-      "minLength": 1
-    },
-    "redhatorgiddef": {
-      "type": "string",
-      "minLength": 1
-    }
-  }
+  ]
 }
