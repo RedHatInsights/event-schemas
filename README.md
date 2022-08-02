@@ -38,13 +38,16 @@ coordinate with consumers, and you SHOULD bump the version number for clarity.
 Docs
 ----
 
-See `docs/index.html` for generated documentation. Generated documentation can be updated via
-`scripts/update-docs.sh`.
+See https://redhatinsights.github.io/event-schemas/ for generated documentation.
+Documentation can be generated locally via `scripts/update-docs.sh`.
 
 Scripts
 -------
 
-* `scripts/update-docs.sh` regenerates the `docs/index.html` and related.
+* `scripts/update-docs.sh` generates the `docs/index.html` and related files.
+  If you do not run `npm install` first, it will fallback to the asyncapi
+  generator container image, which is slower than direct node usage, but
+  functionally equivalent.
 * `scripts/validate.py` validates both the overall JSON, and that the `data` property validates 
   against the specified `dataschema`. It requires the python `jsonschema` package 
   (`dnf install python3-jsonschema` or `pip install --user jsonschema`).
