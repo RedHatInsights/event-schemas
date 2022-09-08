@@ -8,5 +8,14 @@
   "time": "2018-04-05T17:31:00Z",
   "redhatorgid": "org123",
   "redhatconsolebundle": "rhel",
-  "dataschema": "https://console.redhat.com/api/schemas/core/v1/empty.json"
+  "dataschema": "https://console.redhat.com/api/schemas/core/v1/notification.json",
+  "data": {
+    "notification_recipients": {
+      "only_admins": true,
+      "ignore_user_preferences": true,
+      "users": [
+        "jane@example.com"
+      ]
+    }
+  }
 }

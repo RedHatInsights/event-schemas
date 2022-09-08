@@ -1,0 +1,36 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://console.redhat.com/api/schemas/core/v1/notification.json",
+  "description": "Notification event. Appropriate when an event has no data aside from recipient settings. If the event requires data, then it should reference the Recipient object definition in a separate schema.",
+  "type": "object",
+  "properties": {
+    "notification_recipients": {
+      "$ref": "#/definitions/Recipients"
+    }
+  },
+  "additionalProperties": false,
+  "definitions": {
+    "Recipients": {
+      "description": "Notification recipients. Should be in a top-level field named \"notification_recipients\"",
+      "type": "object",
+      "properties": {
+        "only_admins": {
+          "description": "Setting to true sends an email to the administrators of the account. Setting to false sends an email to all users of the account.",
+          "type": "boolean"
+        },
+        "ignore_user_preferences": {
+          "description": "Setting to true ignores all the user preferences on this Recipient setting (It doesn’t affect other configuration that an Administrator sets on their Notification settings). Setting to false honors the user preferences.",
+          "type": "boolean"
+        },
+        "users": {
+          "description": "List of users to direct the notification to. This won’t override notification's administrators settings. Users list will be merged with other settings.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}
