@@ -106,7 +106,8 @@
     "specversion",
     "type",
     "dataschema",
-    "time"
+    "time",
+    "redhatorgid"
   ],
   "definitions": {
     "timedef": {
