@@ -72,6 +72,9 @@
         },
         {
           "$ref": "../../core/v1/rhel_system.json"
+        },
+        {
+          "$ref": "../../core/v1/human_readable.json"
         }
       ]
     },
