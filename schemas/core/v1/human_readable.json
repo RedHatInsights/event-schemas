@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://console.redhat.com/api/schemas/core/v1/human_readable.json",
+  "description": "Schema that indicates information to make it easier for humans to read the message such as names and a link to a webpage",
+  "type": "object",
+  "properties": {
+    "title": {
+      "description": "Human readable text to identify an element.",
+      "type": "string",
+      "examples": [
+        "5 Recommendations for system MySystem",
+        "12 Policies triggered for system MySystem",
+        "Policy 'My new policy' triggered for system MySystem"
+      ]
+    },
+    "href_url": {
+      "description": "Link to human readable content to see information regarding the event.",
+      "type": "string",
+      "format": "uri",
+      "examples": [
+        "http://link-to-system-checkin.com",
+        "http://link-to-policy.com/policy-id"
+      ]
+    }
+  }
+}
