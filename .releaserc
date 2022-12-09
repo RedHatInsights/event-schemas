@@ -1,0 +1,19 @@
+{
+  "branches": ["main"],
+  "plugins": [
+    # NOTE: the following lines should be removed and replaced with the
+    # commented out one once we're ready to declare "1.0"
+    # "@semantic-release/commit-analyzer",
+    ["@semantic-release/commit-analyzer", {
+      "releaseRules": [
+        {"release": "minor"},
+      ],
+    }],
+    "@semantic-release/release-notes-generator",
+    ["@semantic-release/github", {
+      "assets": [
+        {"path": "schemas.tar.gz"},
+      ],
+    }],
+  ]
+}
