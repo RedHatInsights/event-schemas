@@ -1,0 +1,66 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://console.redhat.com/api/schemas/apps/policies/v1/policy-triggered.json",
+  "description": "Event data for triggered policies.",
+  "title": "PolicyTriggeredData",
+  "type": "object",
+  "properties": {
+    "policies": {
+      "description": "Triggered policies for a system",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Policy"
+      }
+    },
+    "system": {
+      "$ref": "../../../core/v1/rhel_system.json#/definitions/RhelSystem"
+    },
+    "system_check_in": {
+      "description": "Timestamp of when the system did a check in. Must adhere to RFC 3339.",
+      "$ref": "../../../events/v1/events.json#/definitions/timedef",
+      "examples": [
+        "2018-04-05T17:31:00Z"
+      ]
+    }
+  },
+  "required": [
+    "policies",
+    "system",
+    "system_check_in"
+  ],
+  "additionalProperties": false,
+  "definitions": {
+    "Policy": {
+      "type": "object",
+      "properties": {
+        "policy_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "policy_name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "policy_description": {
+          "type": "string",
+          "minLength": 1
+        },
+        "policy_condition": {
+          "type": "string",
+          "minLength": 1
+        },
+        "policy_url": {
+          "type": "string",
+          "pattern": "https://.*"
+        }
+      },
+      "required": [
+        "policy_id",
+        "policy_name",
+        "policy_description",
+        "policy_condition",
+        "policy_url"
+      ]
+    }
+  }
+}

@@ -62,6 +62,9 @@
           "$ref": "../../apps/advisor/v1/advisor-recommendations.json"
         },
         {
+          "$ref": "../../apps/policies/v1/policy-triggered.json"
+        },
+        {
           "$ref": "../../core/v1/empty.json"
         },
         {
