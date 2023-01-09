@@ -46,6 +46,13 @@
           "items": {
             "$ref": "#/definitions/RhelSystemTag"
           }
+        },
+        "check_in": {
+          "description": "Timestamp of when the system did a check in. Must adhere to RFC 3339.",
+          "$ref": "./common.json#/definitions/timedef",
+          "examples": [
+            "2018-04-05T17:31:00Z"
+          ]
         }
       },
       "required": [
