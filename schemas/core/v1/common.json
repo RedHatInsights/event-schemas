@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://console.redhat.com/api/schemas/core/v1/common.json",
+  "title": "Common schemas",
+  "description": "Collection of common console.redhat.com types",
+  "definitions": {
+    "timedef": {
+      "type": "string",
+      "format": "date-time",
+      "minLength": 1
+    },
+    "redhataccountdef": {
+      "type": "string",
+      "minLength": 1
+    },
+    "redhatorgiddef": {
+      "type": "string",
+      "minLength": 1
+    }
+  }
+}
