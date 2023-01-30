@@ -1,0 +1,63 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://console.redhat.com/api/schemas/apps/policies/v1/policy-triggered.json",
+  "description": "Event data for triggered policies.",
+  "title": "PolicyTriggeredData",
+  "type": "object",
+  "properties": {
+    "policies": {
+      "description": "Triggered policies for a system",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Policy"
+      }
+    },
+    "system": {
+      "$ref": "../../../core/v1/rhel_system.json#/definitions/RhelSystem",
+      "required": [
+        "check_in",
+        "display_name",
+        "tags"
+      ]
+    }
+  },
+  "required": [
+    "policies",
+    "system"
+  ],
+  "additionalProperties": false,
+  "definitions": {
+    "Policy": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "description": {
+          "type": "string",
+          "minLength": 1
+        },
+        "condition": {
+          "type": "string",
+          "minLength": 1
+        },
+        "url": {
+          "type": "string",
+          "pattern": "https://.*"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "description",
+        "condition",
+        "url"
+      ]
+    }
+  }
+}
