@@ -2,6 +2,6 @@
   "name": "event-schemas",
   "dependencies": {
     "@asyncapi/generator": "^1.9.14",
-    "@asyncapi/html-template": "^0.28.1"
+    "@asyncapi/html-template": "^0.28.2"
   }
 }
