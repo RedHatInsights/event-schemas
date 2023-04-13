@@ -1,6 +1,6 @@
 {
   "$schema": "https://console.redhat.com/api/schemas/events/v1/events.json",
-  "id": "urn:redhat:console:event:5864ac25-4c52-4c87-bd28-9909a4fa3187",
+  "id": "8fcc8b83-e160-4b5d-8baf-2a7262ab9cd4",
   "source": "urn:redhat:source:console:app:advisor",
   "specversion": "1.0",
   "type": "com.redhat.console.advisor.new-recommendations",

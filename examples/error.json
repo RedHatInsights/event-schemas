@@ -1,6 +1,6 @@
 {
   "$schema": "https://console.redhat.com/api/schemas/events/v1/events.json",
-  "id": "urn:redhat:console:event:5864ac25-4c52-4c87-bd28-9909a4fa3187",
+  "id": "9cd45e39-0976-455c-b6f6-b561e5ccde5c",
   "source": "urn:redhat:source:console:app:subscriptions",
   "specversion": "1.0",
   "type": "com.redhat.console.subscriptions.error",
