@@ -1,6 +1,6 @@
 {
   "$schema": "https://console.redhat.com/api/schemas/events/v1/events.json",
-  "id": "urn:redhat:console:event:443ba9f6-70ff-46e5-9101-3dbfbf2dbff5",
+  "id": "443ba9f6-70ff-46e5-9101-3dbfbf2dbff5",
   "source": "urn:redhat:source:console:app:policies",
   "specversion": "1.0",
   "type": "com.redhat.console.policies.policy-triggered",
@@ -16,6 +16,7 @@
       "display_name": "rhel8desktop",
       "rhel_version": "8.3",
       "host_url": "https://console.redhat.com/insights/inventory/08e8ec2b-6a79-4f1d-bea4-a438da139493",
+      "check_in": "2018-04-05T17:31:00Z",
       "tags": [
         {
           "key": "Team",
@@ -81,20 +82,19 @@
     },
     "policies": [
       {
-        "policy_id": "5864ac25-4c52-4f97-bd28-9909a4fa3189",
-        "policy_name": "Is wireshark RPM installed?",
-        "policy_description": "System has wireshark RPM installed",
-        "policy_condition": "facts.installed_packages contains ['wireshark']",
-        "policy_url": "https://console.redhat.com/insights/policies/policy/5864ac25-4c52-4f97-bd28-9909a4fa3189"
+        "id": "5864ac25-4c52-4f97-bd28-9909a4fa3189",
+        "name": "Is wireshark RPM installed?",
+        "description": "System has wireshark RPM installed",
+        "condition": "facts.installed_packages contains ['wireshark']",
+        "url": "https://console.redhat.com/insights/policies/policy/5864ac25-4c52-4f97-bd28-9909a4fa3189"
       },
       {
-        "policy_id": "5864ac25-4c52-4f97-bd28-9909a4fa3187",
-        "policy_name": "Missing a tag Owner",
-        "policy_description": "Which of my public cloud instances are missing a tag Owner value set?",
-        "policy_condition": "facts.cloud_provider in ['alibaba',aws','azure','google'] and not tags.Owner",
-        "policy_url": "https://console.redhat.com/insights/policies/policy/5864ac25-4c52-4f97-bd28-9909a4fa3187"
+        "id": "5864ac25-4c52-4f97-bd28-9909a4fa3187",
+        "name": "Missing a tag Owner",
+        "description": "Which of my public cloud instances are missing a tag Owner value set?",
+        "condition": "facts.cloud_provider in ['alibaba',aws','azure','google'] and not tags.Owner",
+        "url": "https://console.redhat.com/insights/policies/policy/5864ac25-4c52-4f97-bd28-9909a4fa3187"
       }
-    ],
-    "system_check_in": "2018-04-05T17:31:00Z"
+    ]
   }
 }
