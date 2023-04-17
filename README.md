@@ -23,7 +23,7 @@ directory.
 
 Any app-specific data should be defined in an app-specific schema in the `apps` directory.
 
-New schemas MUST be added to `schemas/events/v1/events.json` -> `data` -> `oneOf` section.
+New schemas MUST be added to `schemas/events/v1/events.json` -> `oneOf` -> `data` / `dataschema` section.
 
 
 Schemas SHOULD make liberal use of `"additionalProperties": false` to enforce deliberate changes to

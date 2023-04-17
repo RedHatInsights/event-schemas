@@ -56,27 +56,7 @@
       "pattern": "https://console.redhat.com/api/schemas/.*"
     },
     "data": {
-      "type": "object",
-      "oneOf": [
-        {
-          "$ref": "../../apps/advisor/v1/advisor-recommendations.json"
-        },
-        {
-          "$ref": "../../apps/policies/v1/policy-triggered.json"
-        },
-        {
-          "$ref": "../../core/v1/empty.json"
-        },
-        {
-          "$ref": "../../core/v1/error.json"
-        },
-        {
-          "$ref": "../../core/v1/notification.json"
-        },
-        {
-          "$ref": "../../core/v1/rhel_system.json"
-        }
-      ]
+      "type": "object"
     },
     "time": {
       "description": "Timestamp of when the occurrence happened. Must adhere to RFC 3339.",
@@ -101,6 +81,83 @@
       ]
     }
   },
+  "oneOf": [
+    {
+      "properties": {
+        "dataschema": {
+          "const": "https://console.redhat.com/api/schemas/apps/policies/v1/policy-triggered.json"
+        },
+        "data": {
+          "$ref": "../../apps/policies/v1/policy-triggered.json"
+        }
+      },
+      "required": [
+        "data"
+      ]
+    },
+    {
+      "properties": {
+        "dataschema": {
+          "const": "https://console.redhat.com/api/schemas/apps/advisor/v1/advisor-recommendations.json"
+        },
+        "data": {
+          "$ref": "../../apps/advisor/v1/advisor-recommendations.json"
+        }
+      },
+      "required": [
+        "data"
+      ]
+    },
+    {
+      "properties": {
+        "dataschema": {
+          "const":"https://console.redhat.com/api/schemas/core/v1/empty.json"
+        },
+        "data": {
+          "$ref": "../../core/v1/empty.json"
+        }
+      }
+    },
+    {
+      "properties": {
+        "dataschema": {
+          "const":"https://console.redhat.com/api/schemas/core/v1/error.json"
+        },
+        "data": {
+          "$ref": "../../core/v1/error.json"
+        }
+      },
+      "required": [
+        "data"
+      ]
+    },
+    {
+      "properties": {
+        "dataschema": {
+          "const":"https://console.redhat.com/api/schemas/core/v1/notification.json"
+        },
+        "data": {
+          "$ref": "../../core/v1/notification.json"
+        }
+      },
+      "required": [
+        "data"
+      ]
+    },
+    {
+      "properties": {
+        "dataschema": {
+          "const":"https://console.redhat.com/api/schemas/core/v1/rhel_system.json"
+        },
+        "data": {
+          "$ref": "../../core/v1/rhel_system.json"
+        }
+      },
+      "required": [
+        "data"
+      ]
+    }
+  ],
   "required": [
     "id",
     "source",
