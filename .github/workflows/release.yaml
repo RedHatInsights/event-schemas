@@ -1,11 +1,14 @@
 on:
-  push:
-    branches:
-      - main
+  workflow_run:
+    workflows: ["Validate"]
+    branches: ["main"]
+    types:
+      - completed
 
 jobs:
   create-release:
     runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
       - uses: actions/checkout@v2
       - run: tar -cvzf schemas.tar.gz schemas/
