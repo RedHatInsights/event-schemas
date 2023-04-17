@@ -3,5 +3,13 @@
   "dependencies": {
     "@asyncapi/generator": "^1.9.18",
     "@asyncapi/html-template": "^0.28.3"
+  },
+  "devDependencies": {
+    "ajv": "^8.12.0",
+    "ajv-formats": "^2.1.1",
+    "better-ajv-errors": "^1.2.0"
+  },
+  "scripts": {
+    "validate": "node scripts/validate.js"
   }
 }
