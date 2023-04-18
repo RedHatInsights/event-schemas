@@ -48,10 +48,12 @@ Scripts
   If you do not run `npm install` first, it will fallback to the asyncapi
   generator container image, which is slower than direct node usage, but
   functionally equivalent.
-* `scripts/validate.py` validates both the overall JSON, and that the `data` property validates 
-  against the specified `dataschema`. It requires the python `jsonschema` package 
-  (`dnf install python3-jsonschema` or `pip install --user jsonschema`).
+* `npm run validate` validates the whole schema. If any input is received,
+  validates the overall JSON, else it runs the validation on all
+  [examples](./examples).
 
 ```
-cat examples/advisor.json | python scripts/validate.py
+cat examples/advisor.json | npm run validate
+# or
+npm run validate
 ```
