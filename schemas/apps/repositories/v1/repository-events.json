@@ -1,0 +1,80 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://console.redhat.com/api/schemas/apps/repositories/v1/repository-events.json",
+  "description": "Event data for Repository Events.",
+  "title": "RepositoryEventData",
+  "type": "object",
+  "properties": {
+    "repositories": {
+      "description": "List of repositories affected by the event",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Repositories"
+      }
+    }
+  },
+  "required": [
+    "repositories"
+  ],
+  "additionalProperties": false,
+  "definitions": {
+    "Repositories": {
+      "type": "object",
+      "properties": {
+        "uuid": {
+          "type": "string",
+          "minLength": 1
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "url": {
+            "type": "string",
+            "minLength": 1
+        },
+        "distribution_versions": {
+            "type": "array"
+        },
+        "distribution_arch": {
+            "type": "string"
+        },
+        "last_introspection_time": {
+            "type": "string",
+            "format": "date-time"
+        },
+        "last_success_introspection_time": {
+            "type": "string",
+            "format": "date-time"
+        },
+        "last_update_introspection_time": {
+            "type": "string",
+            "format": "date-time"
+        },
+        "last_introspection_error": {
+            "type": "string"
+        },
+        "failed_introspections_count": {
+            "type": "integer"
+        },
+        "package_count": {
+            "type": "integer"
+        },
+        "status": {
+            "type": "string"
+        },
+        "gpg_key": {
+            "type": "string"
+        },
+        "metadata_verification": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "uuid",
+        "name",
+        "url"
+      ]
+    }
+  }
+}

@@ -156,6 +156,19 @@
       "required": [
         "data"
       ]
+    },
+    {
+      "properties": {
+        "dataschema": {
+          "const": "https://console.redhat.com/api/schemas/apps/repositories/v1/repository-events.json"
+        },
+        "data": {
+          "$ref": "../../apps/repositories/v1/repository-events.json"
+        }
+      },
+      "required": [
+        "data"
+      ]
     }
   ],
   "required": [
