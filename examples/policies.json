@@ -94,6 +94,13 @@
         "description": "Which of my public cloud instances are missing a tag Owner value set?",
         "condition": "facts.cloud_provider in ['alibaba',aws','azure','google'] and not tags.Owner",
         "url": "https://console.redhat.com/insights/policies/policy/5864ac25-4c52-4f97-bd28-9909a4fa3187"
+      },
+      {
+        "id": "5864ac25-4c52-4f97-bd28-3309a4fa3187",
+        "name": "Policy without description and http url",
+        "description": "",
+        "condition": "facts.cloud_provider in ['alibaba',aws','azure','google'] and not tags.Owner",
+        "url": "http://console.redhat.com/insights/policies/policy/5864ac25-4c52-4f97-bd28-9909a4fa3187"
       }
     ]
   }

@@ -33,15 +33,14 @@
       "properties": {
         "id": {
           "type": "string",
-          "minLength": 1
+          "format": "uuid"
         },
         "name": {
           "type": "string",
           "minLength": 1
         },
         "description": {
-          "type": "string",
-          "minLength": 1
+          "type": "string"
         },
         "condition": {
           "type": "string",
@@ -49,7 +48,7 @@
         },
         "url": {
           "type": "string",
-          "pattern": "https://.*"
+          "format": "uri"
         }
       },
       "required": [
