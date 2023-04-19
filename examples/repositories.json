@@ -19,8 +19,6 @@
             "7"
           ],
           "distribution_arch": "x86_64",
-          "account_id": "undefined",
-          "org_id": "16758779",
           "last_introspection_time": "2023-04-18T21:09:01+01:00",
           "last_success_introspection_time": "2023-04-18T21:09:01+01:00",
           "last_update_introspection_time": "2023-04-18T21:09:01+01:00",
@@ -39,8 +37,6 @@
             "8"
           ],
           "distribution_arch": "x86_64",
-          "account_id": "undefined",
-          "org_id": "16758779",
           "last_introspection_time": "2023-04-18T21:08:58+01:00",
           "last_success_introspection_time": "2023-04-18T21:08:58+01:00",
           "last_update_introspection_time": "2023-04-18T21:08:58+01:00",
@@ -59,8 +55,6 @@
             "9"
           ],
           "distribution_arch": "x86_64",
-          "account_id": "undefined",
-          "org_id": "16758779",
           "last_introspection_time": "2023-04-05T19:00:43+01:00",
           "last_success_introspection_time": "2023-04-05T19:00:43+01:00",
           "last_update_introspection_time": "2023-04-05T18:27:07+01:00",

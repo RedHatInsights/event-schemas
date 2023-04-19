@@ -39,13 +39,6 @@
         "distribution_arch": {
             "type": "string"
         },
-        "account_id": {
-            "type": "string"
-        },
-        "org_id": {
-            "type": "string",
-            "minLength": 1
-        },
         "last_introspection_time": {
             "type": "string",
             "format": "date-time"
@@ -80,8 +73,7 @@
       "required": [
         "uuid",
         "name",
-        "url",
-        "org_id"
+        "url"
       ]
     }
   }
