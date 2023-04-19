@@ -11,9 +11,6 @@
       "items": {
         "$ref": "#/definitions/Repositories"
       }
-    },
-    "system": {
-      "$ref": "../../../core/v1/rhel_system.json#/definitions/RhelSystem"
     }
   },
   "required": [
