@@ -41,6 +41,18 @@ Docs
 See https://redhatinsights.github.io/event-schemas/ for generated documentation.
 Documentation can be generated locally via `scripts/update-docs.sh`.
 
+Libraries
+---------
+
+Libraries for multiple languages are generated using [quicktype](https://quicktype.io/).
+Each one is keep on their own repository with it's own version.
+
+- [Java](https://github.com/RedHatInsights/event-schemas-java)
+- [Python](https://github.com/RedHatInsights/event-schemas-python)
+- [Golang](https://github.com/RedHatInsights/event-schemas-go)
+
+All libraries should use dependabot to ensure we are using the latest version of this schema.
+
 Scripts
 -------
 
