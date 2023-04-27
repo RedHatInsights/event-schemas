@@ -19,6 +19,15 @@
       "check_in": "2018-04-05T17:31:00Z",
       "tags": [
         {
+          "key": "Missing-value",
+          "namespace": "insights-client"
+        },
+        {
+          "key": "Empty-value",
+          "value": "",
+          "namespace": "insights-client"
+        },
+        {
           "key": "Team",
           "value": "PMs",
           "namespace": "insights-client"
