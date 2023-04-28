@@ -1,0 +1,63 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://console.redhat.com/api/schemas/apps/export-service/v1/export-request.json",
+    "description": "Event data for data export requests.",
+    "title": "ExportServiceEventData",
+    "type": "object",
+    "properties": {
+      "exportRequest": {
+        "description": "A request for data to be exported",
+        "type": "object",
+        "$ref": "#/definitions/ExportRequest"
+      }
+    },
+    "required": [
+      "exportRequest"
+    ],
+    "additionalProperties": false,
+    "definitions": {
+      "ExportRequest": {
+        "description": "A request for data to be exported",
+        "type": "object",
+        "properties": {
+          "uuid": {
+            "description": "A unique identifier for the request",
+            "type": "string"
+          },
+          "application": {
+            "description": "The application being requested",
+            "type": "string"
+          },
+          "format": {
+            "description": "The format of the data to be exported",
+            "type": "string",
+            "enum": [
+              "csv",
+              "json"
+            ]
+          },
+          "resource": {
+            "description": "The resource to be exported",
+            "type": "string"
+          },
+          "x-rh-identity": {
+            "description": "The identity header of the user making the request",
+            "type": "string"
+          },
+          "filters": {
+            "description": "The filters to be applied to the data",
+            "type": "object"
+          }
+        },
+        "required": [
+          "uuid",
+          "application",
+          "format",
+          "resource",
+          "x-rh-identity"
+        ],
+        "additionalProperties": false
+      }
+    }
+  }
+  

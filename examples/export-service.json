@@ -1,0 +1,26 @@
+{
+    "$schema": "https://console.redhat.com/api/schemas/events/v1/events.json",
+    "id": "2356aad8-de45-4ba0-80bd-4637763ad115",
+    "source": "urn:redhat:source:console:export-service",
+    "specversion": "1.0",
+    "type": "com.redhat.console.export-service.request",
+    "subject": "urn:redhat:subject:export-service:b24c269d-33d6-410e-8808-c71c9635e84f",
+    "time": "2023-01-01T00:00:00Z",
+    "redhatorgid": "org123",
+    "redhatconsolebundle": "rhel",
+    "dataschema": "https://console.redhat.com/api/schemas/apps/export-service/v1/export-request.json",
+    "data": {
+        "exportRequest": {
+            "uuid": "afebabe-cafe-babe-cafe-babecafebabe",
+            "application": "myApp",
+            "format": "csv",
+            "resource": "myResource",
+            "x-rh-identity": "base64-encoded-identity",
+            "filters": {
+                "filter1": "value1",
+                "filter2": "value2"
+            }
+        }
+    }
+  }
+  
