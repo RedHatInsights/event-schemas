@@ -11,7 +11,7 @@
     "dataschema": "https://console.redhat.com/api/schemas/apps/export-service/v1/export-request.json",
     "data": {
         "exportRequest": {
-            "uuid": "afebabe-cafe-babe-cafe-babecafebabe",
+            "uuid": "6aa703bc-5e32-47ea-83ca-335ecea1b085",
             "application": "myApp",
             "format": "csv",
             "resource": "myResource",
