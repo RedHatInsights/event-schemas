@@ -33,8 +33,11 @@
             "type": "string",
             "minLength": 1
         },
-        "distribution_versions": {
-            "type": "array"
+        "distribution_versions":{
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
         },
         "distribution_arch": {
             "type": "string"
