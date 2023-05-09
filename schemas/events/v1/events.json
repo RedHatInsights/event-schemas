@@ -187,7 +187,6 @@
   "required": [
     "id",
     "source",
-    "subject",
     "specversion",
     "type",
     "dataschema",
