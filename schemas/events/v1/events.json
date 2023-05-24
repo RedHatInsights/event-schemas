@@ -173,10 +173,10 @@
     {
       "properties": {
         "dataschema": {
-          "const": "https://console.redhat.com/api/schemas/apps/export-service/v1/export-request.json"
+          "const": "https://console.redhat.com/api/schemas/apps/export-service/v1/resource-request.json"
         },
         "data": {
-          "$ref": "../../apps/export-service/v1/export-request.json"
+          "$ref": "../../apps/export-service/v1/resource-request.json"
         }
       },
       "required": [
