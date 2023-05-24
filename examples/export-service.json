@@ -1,17 +1,18 @@
 {
     "$schema": "https://console.redhat.com/api/schemas/events/v1/events.json",
     "id": "2356aad8-de45-4ba0-80bd-4637763ad115",
-    "source": "urn:redhat:source:console:export-service",
+    "source": "urn:redhat:source:console:app:export-service",
     "specversion": "1.0",
     "type": "com.redhat.console.export-service.request",
-    "subject": "urn:redhat:subject:export-service:b24c269d-33d6-410e-8808-c71c9635e84f",
+    "subject": "urn:redhat:subject:export-service:request:2e3d7746-2cf2-441e-84fe-cf28863d22ae",
     "time": "2023-01-01T00:00:00Z",
     "redhatorgid": "org123",
     "redhatconsolebundle": "rhel",
-    "dataschema": "https://console.redhat.com/api/schemas/apps/export-service/v1/export-request.json",
+    "dataschema": "https://console.redhat.com/api/schemas/apps/export-service/v1/resource-request.json",
     "data": {
-        "exportRequest": {
-            "uuid": "6aa703bc-5e32-47ea-83ca-335ecea1b085",
+        "resourceRequest": {
+            "uuid": "b24c269d-33d6-410e-8808-c71c9635e84f",
+            "exportRequestUuid": "2e3d7746-2cf2-441e-84fe-cf28863d22ae",
             "application": "myApp",
             "format": "csv",
             "resource": "myResource",
@@ -22,5 +23,5 @@
             }
         }
     }
-  }
+}
   
