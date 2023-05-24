@@ -10,9 +10,9 @@
     "redhatconsolebundle": "rhel",
     "dataschema": "https://console.redhat.com/api/schemas/apps/export-service/v1/resource-request.json",
     "data": {
-        "resourceRequest": {
+        "resource_request": {
             "uuid": "b24c269d-33d6-410e-8808-c71c9635e84f",
-            "exportRequestUuid": "2e3d7746-2cf2-441e-84fe-cf28863d22ae",
+            "export_request_uuid": "2e3d7746-2cf2-441e-84fe-cf28863d22ae",
             "application": "myApp",
             "format": "csv",
             "resource": "myResource",

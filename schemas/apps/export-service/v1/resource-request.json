@@ -5,14 +5,14 @@
   "title": "ExportServiceEventData",
   "type": "object",
   "properties": {
-    "resourceRequest": {
+    "resource_request": {
       "description": "A request for data to be exported",
       "type": "object",
       "$ref": "#/definitions/ResourceRequest"
     }
   },
   "required": [
-    "resourceRequest"
+    "resource_request"
   ],
   "additionalProperties": false,
   "definitions": {
@@ -25,7 +25,7 @@
           "type": "string",
           "format": "uuid"
         },
-        "exportRequestUuid": {
+        "export_request_uuid": {
           "description": "The unique identifier of the export request that triggered the resource request",
           "type": "string",
           "format": "uuid"
@@ -58,7 +58,7 @@
       },
       "required": [
         "uuid",
-        "exportRequestUuid",
+        "export_request_uuid",
         "application",
         "format",
         "resource",
