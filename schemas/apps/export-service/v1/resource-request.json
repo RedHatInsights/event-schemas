@@ -1,27 +1,32 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://console.redhat.com/api/schemas/apps/export-service/v1/export-request.json",
-  "description": "Event data for data export requests.",
+  "$id": "https://console.redhat.com/api/schemas/apps/export-service/v1/resource-request.json",
+  "description": "Event data for data export requests",
   "title": "ExportServiceEventData",
   "type": "object",
   "properties": {
-    "exportRequest": {
+    "resourceRequest": {
       "description": "A request for data to be exported",
       "type": "object",
-      "$ref": "#/definitions/ExportRequest"
+      "$ref": "#/definitions/ResourceRequest"
     }
   },
   "required": [
-    "exportRequest"
+    "resourceRequest"
   ],
   "additionalProperties": false,
   "definitions": {
-    "ExportRequest": {
+    "ResourceRequest": {
       "description": "A request for data to be exported",
       "type": "object",
       "properties": {
         "uuid": {
-          "description": "A unique identifier for the request",
+          "description": "A unique identifier for the resource request",
+          "type": "string",
+          "format": "uuid"
+        },
+        "exportRequestUuid": {
+          "description": "The unique identifier of the export request that triggered the resource request",
           "type": "string",
           "format": "uuid"
         },
@@ -53,6 +58,7 @@
       },
       "required": [
         "uuid",
+        "exportRequestUuid",
         "application",
         "format",
         "resource",
