@@ -28,6 +28,14 @@
           "items": {
             "type": "string"
           }
+        },
+        "emails": {
+          "description": "List of emails to direct the notification to. This won’t override notification's administrators settings. Emails list will be merged with other settings.",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "email"
+          }
         }
       },
       "additionalProperties": false
